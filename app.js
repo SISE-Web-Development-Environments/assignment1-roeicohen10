@@ -160,10 +160,6 @@ function Start() {
     
 }
 
-function pause_music(){
-    audio.pause();
-}
-
 
 function fillInputSetting(){
     var up_value = localStorage.getItem("up");
@@ -364,7 +360,7 @@ function UpdatePosition() {
         window.clearInterval(interval);
         window.clearInterval(monsterInterval);
         window.clearInterval(shapeInterval);
-        pause_music();
+        paudio.pause();
         lose_audio.play();
         alert("You are better than "+score+" points!")
     }
@@ -372,7 +368,7 @@ function UpdatePosition() {
         window.clearInterval(interval);
         window.clearInterval(monsterInterval);
         window.clearInterval(shapeInterval);
-        pause_music();
+        audio.pause();
         win_audio.play();
         alert("Winner!!!")
     }
@@ -381,7 +377,7 @@ function UpdatePosition() {
         window.clearInterval(interval);
         window.clearInterval(monsterInterval);
         window.clearInterval(shapeInterval);
-        pause_music();
+        audio.pause();
         win_audio.play();
         alert("Winner!!!");
     }
@@ -392,6 +388,7 @@ function UpdatePosition() {
 }
 
 function restart(){
+    audio.pause();
     window.clearInterval(interval);
     window.clearInterval(monsterInterval);
     window.clearInterval(shapeInterval);
@@ -435,7 +432,7 @@ function updateStrikes(){
         monsterStrikes++;
         lblLife.value = 5 - monsterStrikes;   
         if(monsterStrikes >= 5){
-            pause_music();
+            audio.pause();
             lose_audio.play();
             alert("Loser");
             window.clearInterval(interval);
